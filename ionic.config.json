@@ -1,0 +1,8 @@
+{
+  "name": "stake-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "b0967e66"
+}
