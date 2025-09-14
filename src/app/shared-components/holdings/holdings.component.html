@@ -3,7 +3,8 @@
   <div class="main-price_value">${{ calculatedHoldings }}</div>
 </div>
 
-<section id="holdings">
+
+<section id="holdings" *ngIf="holdings$ | async as holdings">
   <h2 class="sub-heading">Holdings</h2>
   <ion-grid>
     <ion-row>
@@ -24,10 +25,10 @@
         <div class="body-3">{{ stock.numberOfShares }}</div>
       </ion-col>
       <ion-col size="4" class="grid-stock-price ion-text-end">
-        <ion-label>1,750.50</ion-label>
+        <ion-label>{{ stock.price }}</ion-label>
       </ion-col>
       <ion-col size="4" class="grid-stock-change ion-text-end">
-        <ion-chip color="stock.change > 0 ? 'success' : 'danger'">{{ stock.change | number : '1.2-2' }}</ion-chip>
+        <ion-chip color="success">{{ stock.change | number : '1.2-2' }}</ion-chip>
       </ion-col>
     </ion-row>
   </ion-grid>

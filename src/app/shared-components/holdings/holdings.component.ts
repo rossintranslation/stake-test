@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Stock } from 'src/app/models/stock.model';
 import { StockService } from 'src/app/services/stock';
 
@@ -10,6 +11,8 @@ import { StockService } from 'src/app/services/stock';
 })
 export class HoldingsComponent {
   holdings: Stock[] = [];
+  holdings$!: Observable<any[]>;
+
   calculatedHoldings: any[] = [];
   constructor(private stockService: StockService) { }
   ngOnInit() {
@@ -18,6 +21,12 @@ export class HoldingsComponent {
       this.calculatedHoldings = this.stockService.calculateCombinedEquityValue(this.holdings);
 
     });
+
+    this.holdings$ = this.stockService.holdingsList$;
+
+    // Initial data fetch.
+    this.stockService.fetchHoldings();
+
 
   }
 }

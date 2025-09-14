@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, mergeMap, Observable, switchMap } from 'rxjs';
 import { Stock, TrendingStock } from '../models/stock.model'; // Import the Stock model
 
 @Injectable({
@@ -11,8 +11,19 @@ import { Stock, TrendingStock } from '../models/stock.model'; // Import the Stoc
 export class StockService {
   private apiUrl = 'assets/mock-data/stocks.json';
   private apiUrlTrendingStocks = 'assets/mock-data/stocks-trending.json';
+  private holdingsFetchTrigger = new BehaviorSubject<void>(undefined);
 
   constructor(private http: HttpClient) { }
+
+  fetchHoldings() {
+    this.holdingsFetchTrigger.next();
+  }
+  
+  get holdingsList$(): Observable<any[]> {
+    return this.holdingsFetchTrigger.pipe(
+      switchMap(() => this.getStocks())
+    );
+  }
 
   getStocks(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.apiUrl);
@@ -29,15 +40,13 @@ export class StockService {
 
   calculateCombinedEquityValue(holdings: any[]): any {
     let totalValue = 0;
-    
-    // Iterate through each holding and calculate its value, then add to the total.
+
     for (const holding of holdings) {
       if (holding.price && holding.numberOfShares) {
         totalValue += holding.price * holding.numberOfShares;
       }
     }
-    
-    // Return the total value, formatted to two decimal places.
+
     return parseFloat(totalValue.toFixed(2));
   }
 }
