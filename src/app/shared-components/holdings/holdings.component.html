@@ -1,4 +1,9 @@
-<section id="container">
+<div id="total-equity">
+  <label class="main-price_label">Total equity</label>
+  <div class="main-price_value">${{ calculatedHoldings }}</div>
+</div>
+
+<section id="holdings">
   <h2 class="sub-heading">Holdings</h2>
   <ion-grid>
     <ion-row>
@@ -13,7 +18,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngFor="let stock of stocks">
+    <ion-row *ngFor="let stock of holdings">
       <ion-col size="4">
         <ion-label class="body-2">{{ stock.stock }}</ion-label>
         <div class="body-3">{{ stock.numberOfShares }}</div>

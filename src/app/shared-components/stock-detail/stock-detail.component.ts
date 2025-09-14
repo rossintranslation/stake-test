@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { TrendingStock } from 'src/app/models/stock.model';
 
 @Component({
@@ -12,13 +12,20 @@ import { TrendingStock } from 'src/app/models/stock.model';
 export class StockDetailComponent {
   @Input() stock!: TrendingStock;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private toastController: ToastController, private modalController: ModalController) { }
 
   dismiss() {
     this.modalController.dismiss();
   }
 
-  buyStock(stock: TrendingStock){
+  async buyStock(stock: TrendingStock) {
+    const toast = await this.toastController.create({
+      message: `${stock.stock_name} successfully purchased`,
+      duration: 1500,
+      position: 'top',
+      color: 'success'
+    });
 
+    await toast.present();
   }
 }

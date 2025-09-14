@@ -26,4 +26,18 @@ export class StockService {
     const buyUrl = `${this.apiUrl}/${updatedStock.id}`;
     return this.http.put<Stock>(buyUrl, updatedStock);
   }
+
+  calculateCombinedEquityValue(holdings: any[]): any {
+    let totalValue = 0;
+    
+    // Iterate through each holding and calculate its value, then add to the total.
+    for (const holding of holdings) {
+      if (holding.price && holding.numberOfShares) {
+        totalValue += holding.price * holding.numberOfShares;
+      }
+    }
+    
+    // Return the total value, formatted to two decimal places.
+    return parseFloat(totalValue.toFixed(2));
+  }
 }

@@ -9,12 +9,15 @@ import { StockService } from 'src/app/services/stock';
   standalone: false,
 })
 export class HoldingsComponent {
-  stocks: Stock[] = [];
-
+  holdings: Stock[] = [];
+  calculatedHoldings: any[] = [];
   constructor(private stockService: StockService) { }
   ngOnInit() {
-this.stockService.getStocks().subscribe(data => {
-      this.stocks = data;
+    this.stockService.getStocks().subscribe(data => {
+      this.holdings = data;
+      this.calculatedHoldings = this.stockService.calculateCombinedEquityValue(this.holdings);
+
     });
+
   }
 }
