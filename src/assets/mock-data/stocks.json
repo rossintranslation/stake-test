@@ -1,0 +1,32 @@
+[
+  {
+    "stock": "AAPL",
+    "price": 175.25,
+    "change": 2.50,
+    "numberOfShares": 50
+  },
+  {
+    "stock": "MSFT",
+    "price": 310.70,
+    "change": -1.85,
+    "numberOfShares": 25
+  },
+  {
+    "stock": "GOOG",
+    "price": 145.88,
+    "change": 0.75,
+    "numberOfShares": 10
+  },
+  {
+    "stock": "AMZN",
+    "price": 135.40,
+    "change": 3.10,
+    "numberOfShares": 30
+  },
+  {
+    "stock": "TSLA",
+    "price": 285.95,
+    "change": -5.60,
+    "numberOfShares": 5
+  }
+]

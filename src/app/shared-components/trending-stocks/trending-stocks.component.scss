@@ -1,0 +1,28 @@
+ion-card-header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row;
+}
+
+ion-card {
+  min-width: 113px;
+}
+
+.small-chip {
+  font-weight: 800;
+  font-style: 800;
+  font-size: 10px;
+  line-height: 130%;
+  letter-spacing: 0.25px;
+  text-align: center;
+  vertical-align: middle;
+  height: 18px;
+  width: 42px;
+  border: 1px solid #141414;
+  border-radius: 16px;
+}

@@ -1,0 +1,17 @@
+<section id="container">
+  <h2 class="sub-heading">Trending stocks</h2>
+  <div class="card-container">
+  <ion-card *ngFor="let stock of stocks" (click)="openStockModal(stock)">
+    <ion-card-header>
+      <div><img [src]="'assets/logos/' + stock.icon" /></div>
+      <div size="small" class="small-chip">{{ stock.stock_type }}</div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>{{ stock.stock_name }}</ion-card-title>
+      <ion-card-subtitle>{{ stock.stock_subtitle }}</ion-card-subtitle>
+      <div>{{ stock.price }}</div>
+    </ion-card-content>
+  </ion-card>
+  </div>
+
+</section>

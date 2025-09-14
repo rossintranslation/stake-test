@@ -1,2 +1,12 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+:root {
+  /* Other variables like colors, etc. */
+
+  /** Font Family **/
+  --ion-font-family: 'Universal Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Other variables */
+  --ion-color-step-600: #141414;
+}

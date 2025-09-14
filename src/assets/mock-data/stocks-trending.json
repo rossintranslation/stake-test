@@ -1,0 +1,23 @@
+[
+  {
+    "icon": "figma.png",
+    "stock_type": "Stock",
+    "stock_name": "Figma",
+    "stock_subtitle": "Figma Inc",
+    "price": 58.44
+  },
+  {
+    "icon": "airbnb.png",
+    "stock_type": "Stock",
+    "stock_name": "Airbnb",
+    "stock_subtitle": "Airbnb Pty Ltd",
+    "price": 125.03
+  },
+  {
+    "icon": "baba.png",
+    "stock_type": "Stock",
+    "stock_name": "BABA",
+    "stock_subtitle": "Alibaba Group",
+    "price": 136.68
+  }
+]
