@@ -1,8 +1,8 @@
 <div>
   <ion-header>
     <ion-toolbar>
-      <ion-title>{{ stock.stock_name }} {{ stock.price }}</ion-title>
-      <ion-buttons slot="end">
+      <ion-title>{{ stock.stock_name | slice:0:3 | uppercase }} {{ stock.price | currency }}</ion-title> <ion-buttons
+        slot="end">
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -11,15 +11,17 @@
 
     <div class="detail-item">
       <ion-label>Price</ion-label>
-      <div></div>
+      <div>{{stock.price}}</div>
     </div>
     <div class="detail-item">
       <ion-label>Amount</ion-label>
-      <div></div>
+      <div> <ion-input label="Default input"></ion-input>
+      </div>
     </div>
     <div class="detail-item">
       <ion-label>Shares</ion-label>
-      <div></div>
+      <div> <ion-input label="Default input"></ion-input>
+      </div>
     </div>
     <ion-button color="dark" shape="round" expand="block" (click)="buyStock(stock)">Buy</ion-button>
   </ion-content>
