@@ -1,7 +1,6 @@
-.custom-toggle {
-  // Use a variable to define a custom background image for the handle
-  --handle-background: url('/assets/icon/search.svg') no-repeat center;
-  
-  // Set the size and position of the background image
-  --handle-background-size: 16px; 
+.detail-item {
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 8px;
 }

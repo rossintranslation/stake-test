@@ -1,21 +1,22 @@
-## 📝 Notes  
-# most shared components were placed in the shared components module, which you can then import into the tabs modules, will allow for new components to shared in future
+#Architecture and Data Flow
+Shared Components: To promote code reusability, you created a shared components module and imported it into other modules, ensuring new components can be shared easily in the future.
 
-# the intial list fetch uses an observable called holdingsList$ that calls getStocks(). in the component the observanable is subscribed to on initialisation and then also triggered using fetchHoldings() which triggers initial data fetch
+Reactive Data Handling: The application uses an observable named holdingsList$ to fetch data. This observable calls a getStocks() method.
 
-# fetchHoldigs() can be reusesd to fetch data again, if a user buys a new holding.
+Initial Data Fetch: On component initialization, holdingsList$ is subscribed to and fetchHoldings() is called to trigger the initial data retrieval. This reactive pattern ensures the UI is always up to date with the latest data.
 
-# In terms of ui i didnt have enough time to style each component so i tried to levereage as many ionic components as a could.
+Data Refresh: The fetchHoldings() method is a reusable function that can be called again (e.g., after a new holding is purchased) to refresh the data displayed in the UI.
 
-# no time time to update the holdings when buying, but the animation is there
+#Holding Updates and Functionality
+Purchase Logic: The planned update for buying a new holding involves a POST request to an endpoint. Upon a successful transaction, you would re-run fetchHoldings() to refresh the data list and the total equity value.
 
-# the update would work using a POST that would pass the purchased holding through an endpoint, on success it would then recall fetchHoldings() to refresh the list and the equity value.
+Total Equity Calculation: The total equity value is calculated by multiplying the price by the number of shares for each holding and then summing these values.
 
-# total equity was calculated calculated based on price multiplied by the number of shares then combined
+Incomplete Features: Due to time constraints, the sliding button for holding updates was not implemented, and the logic to update holdings after a purchase is pending. The discover page is also incomplete but is planned to consume a public stocks API to enable search functionality.
 
-# Tried to use as many ionic components as a could as it was quite a lot to do from scratch, however it was my first time using ionic. Had no time to implement the sliding button
+#UI/UX and Styling
+UI Framework: You leveraged Ionic components to quickly build the user interface, acknowledging this was your first time using the framework.
 
-# Tried to add global styles in the variables .scss but was rushed for time
+Styling: Global styles were not fully implemented due to time constraints, and you noted that you did not have time to style individual components from scratch.
 
-# ive run out of time, and could not implmenet the discover page, but the idea would be to create a service that would consume an api for all the stocks. and then in the search bar implement a input that filter the results of the stocks based on the search entered
-
+Animations: The animation for buying a new holding is in place, but the underlying update functionality is not yet connected.

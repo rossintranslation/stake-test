@@ -1,10 +1,10 @@
-<div id="total-equity">
+<div id="total-equity" class="component-container">
   <label class="main-price_label">Total equity</label>
   <div class="main-price_value">${{ calculatedHoldings }}</div>
 </div>
 
 
-<section id="holdings" *ngIf="holdings$ | async as holdings">
+<section id="holdings" class="component-container" *ngIf="holdings$ | async as holdings">
   <h2 class="sub-heading">Holdings</h2>
   <ion-grid>
     <ion-row>
